@@ -1,0 +1,30 @@
+--- /Makefile.orig	2016-04-21 10:57:48.774602384 -0500
++++ /Makefile	2016-04-21 10:57:58.733601592 -0500
+@@ -2,8 +2,8 @@
+ CC=gcc
+ CFLAGS=-Wall -Wextra -std=gnu99 -O2
+ LDFLAGS=-lX11
+-EXE="xcwd"
+-prefix=/usr/
++EXE=xcwd
++DESTDIR=/usr
+ UNAME:=$(shell uname)
+ O=${CFILES:.c=.o}
+ 
+@@ -18,7 +18,7 @@
+     endif
+ endif
+ 
+-${EXE}: clean ${O}
++${EXE}: ${O}
+ 	${CC} -o $@ ${O} ${CFLAGS} ${LDFLAGS}
+ 
+ .SUFFIXES: .c .o
+@@ -32,5 +32,6 @@
+ 	rm -vf ${EXE}
+ 
+ install: ${EXE}
+-	install -m 0755 ${EXE} $(prefix)/bin
++	mkdir -p ${DESTDIR}/bin
++	install -m 0755 ${EXE} ${DESTDIR}/bin/${EXE}
+ 
