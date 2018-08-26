@@ -23,7 +23,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	x11-misc/xdotool"
 
-DOCS="README CHANGELIST keynavrc"
+DOCS="README.md CHANGELIST keynavrc"
 
 src_install() {
 	dobin keynav
