@@ -29,7 +29,6 @@ src_compile() {
 }
 
 src_install() {
-	dodir ${D}/usr/lib/faust
 	dolib.a ${S}/build/lib/libfaust.a ${S}/build/lib/libOSCFaust.a
 	make install
 }
