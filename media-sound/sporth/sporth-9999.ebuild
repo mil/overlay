@@ -21,7 +21,8 @@ S="${WORKDIR}/sporth-9999"
 RDEPEND="media-sound/soundpipe"
 
 src_compile() {
-  default
+    export BUILD_JACK=true
+    emake
 }
 
 src_install() {
